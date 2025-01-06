@@ -1,0 +1,12 @@
+import qrcode
+website_link=input("Enter the website link: ")
+v = int(input("Enter the version: "))
+bs = int(input("Enter the box size: "))
+b = int(input("Enter the border: "))
+qr = qrcode.QRCode(version=v, box_size=bs, border=b)
+qr.add_data(website_link)
+qr.make()
+color=input("Enter the color: ")
+bg_color=input("Enter the background color: ")
+img = qr.make_image(fill_color = color, back_color = bg_color)
+img.save("qr_code.png")
